@@ -7,7 +7,7 @@ buildscript {
     }
 
     ext {
-        kotlinVersion = "1.1.2-5"
+        kotlinVersion = "1.1.3"
         agpVersion = "2.3.3"
     }
 
@@ -23,6 +23,7 @@ buildscript {
 
 allprojects {
     repositories {
+        google()
         jcenter()
         maven {
             url "https://jitpack.io"
@@ -32,21 +33,21 @@ allprojects {
     ext {
         minSdkVrs = 19
         sdkVersion = 25
-        buildToolsVrs = "25.0.0"
-        supportLibVersion = "25.3.1"
+        buildToolsVrs = "25.0.3"
+        supportLibVersion = "25.4.0"
 
         butterKnifeVersion = "8.6.0"
-        okhttpVersion = "3.0.1"
-        retrofitVersion = "2.0.0"
+        okhttpVersion = "3.8.1"
+        retrofitVersion = "2.2.0"
         timberVersion = "4.5.1"
-        rxJavaVersion = "2.1.0"
+        rxJavaVersion = "2.1.1"
         rxAndroidVersion = "2.0.1"
         rxBindingsVersion = "2.0.0"
 
-        espressoVersion = "2.2.1"
+        espressoVersion = "2.2.2"
         junitVersion = "4.12"
-        mockitoVersion = "2.8.9"
-        truthVersion = "0.27"
+        mockitoVersion = "2.8.52"
+        truthVersion = "0.34"
     }
 }
 
