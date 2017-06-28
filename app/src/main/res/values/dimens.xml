@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+  <dimen name="is_text_small">10sp</dimen>
+  <dimen name="is_text">12sp</dimen>
+  <dimen name="is_text_large">14sp</dimen>
+  <dimen name="is_text_xlarge">16sp</dimen>
+  <dimen name="is_text_xxlarge">18sp</dimen>
+  <dimen name="is_text_xxxlarge">20sp</dimen>
+  <dimen name="is_text_big">22sp</dimen>
+  <dimen name="is_text_xbig">24sp</dimen>
+  <dimen name="is_text_xxbig">26sp</dimen>
+  <dimen name="is_text_xxxbig">30sp</dimen>
+  <dimen name="is_text_huge">32sp</dimen>
+
+
+  <dimen name="is_spacing_micro">8dp</dimen>
+  <dimen name="is_spacing_small">12dp</dimen>
+  <dimen name="is_spacing">16dp</dimen>
+  <dimen name="is_spacing_large">20dp</dimen>
+  <dimen name="is_spacing_xlarge">24dp</dimen>
+  <dimen name="is_spacing_xxlarge">28dp</dimen>
+  <dimen name="is_spacing_xxxlarge">32dp</dimen>
+
+</resources>
