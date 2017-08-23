@@ -8,7 +8,7 @@ class NetworkService {
 
     private val retrofit: Retrofit by lazy {
         Retrofit.Builder()
-                .baseUrl("https://glacial-plains-13128.herokuapp.com/")
+                .baseUrl("http://boiling-dusk-12902.herokuapp.com/")
                 .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
                 .addConverterFactory(GsonConverterFactory.create())
                 .build()
