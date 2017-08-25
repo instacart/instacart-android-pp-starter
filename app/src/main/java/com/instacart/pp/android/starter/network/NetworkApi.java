@@ -1,10 +1,10 @@
 package com.instacart.pp.android.starter.network;
 
-import io.reactivex.Flowable;
 import retrofit2.http.GET;
+import rx.Observable;
 
 public interface NetworkApi {
 
   @GET("/")
-  Flowable<NetworkResponse> hello();
+  Observable<NetworkResponse> hello();
 }

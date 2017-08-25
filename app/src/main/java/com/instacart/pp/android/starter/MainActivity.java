@@ -6,10 +6,10 @@ import android.widget.TextView;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import com.instacart.pp.android.starter.network.NetworkService;
-import io.reactivex.android.schedulers.AndroidSchedulers;
-import io.reactivex.disposables.CompositeDisposable;
-import io.reactivex.disposables.Disposable;
-import io.reactivex.schedulers.Schedulers;
+import rx.android.schedulers.AndroidSchedulers;
+import rx.schedulers.Schedulers;
+import rx.Subscription;
+import rx.subscriptions.CompositeSubscription;
 import timber.log.Timber;
 import timber.log.Timber.DebugTree;
 
@@ -17,7 +17,7 @@ public class MainActivity extends AppCompatActivity {
 
   @BindView(R.id.pp_text_1) TextView textView1;
 
-  CompositeDisposable cd = new CompositeDisposable();
+  CompositeSubscription cs = new CompositeSubscription();
 
   @Override
   protected void onCreate(Bundle savedInstanceState) {
@@ -34,13 +34,13 @@ public class MainActivity extends AppCompatActivity {
   @Override
   protected void onDestroy() {
     super.onDestroy();
-    cd.clear();
+    cs.clear();
   }
 
   private void loadData() {
     textView1.setText("Hello World (local)");
 
-    Disposable disposable = new NetworkService().getApi().hello()
+    Subscription subscription = new NetworkService().getApi().hello()
         .subscribeOn(Schedulers.io())
         .observeOn(AndroidSchedulers.mainThread())
         .subscribe(response -> {
@@ -49,6 +49,6 @@ public class MainActivity extends AppCompatActivity {
           Timber.e(throwable, "ruh roh, something went wrong!");
         });
 
-    cd.add(disposable);
+    cs.add(subscription);
   }
 }
