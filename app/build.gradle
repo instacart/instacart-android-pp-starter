@@ -1,16 +1,13 @@
 apply plugin: 'com.android.application'
+apply plugin: 'kotlin-allopen'
 apply plugin: 'kotlin-android'
 apply plugin: 'kotlin-kapt'
-apply plugin: 'kotlin-allopen'
-apply plugin: 'me.tatarka.retrolambda'
-
 
 buildscript {
-    dependencies {
-        repositories {
-            jcenter()
-        }
-        classpath 'me.tatarka:gradle-retrolambda:3.6.1'
+    repositories {
+        google()
+        jcenter()
+        maven { url "https://jitpack.io" }
     }
 }
 
@@ -33,33 +30,33 @@ android {
         }
     }
     compileOptions {
-        targetCompatibility 1.8
-        sourceCompatibility 1.8
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
     }
 }
 
 dependencies {
-    compile "org.jetbrains.kotlin:kotlin-stdlib:$kotlinVersion"
+    implementation "com.android.support:appcompat-v7:$supportLibVersion"
+    implementation "com.android.support:recyclerview-v7:$supportLibVersion"
 
-    compile "com.android.support:appcompat-v7:$supportLibVersion"
-    compile "com.android.support:recyclerview-v7:$supportLibVersion"
-
-    compile "com.jakewharton:butterknife:$butterKnifeVersion"
+    implementation "com.jakewharton:butterknife:$butterKnifeVersion"
     kapt "com.jakewharton:butterknife-compiler:$butterKnifeVersion"
-    compile "io.reactivex.rxjava2:rxjava:$rxJavaVersion"
-    compile "io.reactivex.rxjava2:rxandroid:$rxAndroidVersion"
-    compile "com.jakewharton.rxbinding2:rxbinding:$rxBindingsVersion"
-    compile "com.jakewharton.timber:timber:$timberVersion"
-    compile "com.squareup.retrofit2:retrofit:$retrofitVersion"
-    compile "com.squareup.retrofit2:converter-gson:$retrofitVersion"
-    compile "com.jakewharton.retrofit:retrofit2-rxjava2-adapter:1.0.0"
 
-    testCompile "junit:junit:$junitVersion"
+    implementation "com.jakewharton.rxbinding2:rxbinding:$rxBindingsVersion"
+    implementation "com.jakewharton.timber:timber:$timberVersion"
 
-    androidTestCompile("com.android.support.test.espresso:espresso-core:$espressoVersion", {
+    implementation "io.reactivex.rxjava2:rxandroid:$rxAndroidVersion"
+    implementation "io.reactivex.rxjava2:rxjava:$rxJavaVersion"
+
+    implementation "com.squareup.retrofit2:adapter-rxjava2:$retrofitVersion"
+    implementation "com.squareup.retrofit2:converter-gson:$retrofitVersion"
+    implementation "com.squareup.retrofit2:retrofit:$retrofitVersion"
+
+    implementation "org.jetbrains.kotlin:kotlin-stdlib:$kotlinVersion"
+
+    testImplementation "junit:junit:$junitVersion"
+
+    androidTestImplementation("com.android.support.test.espresso:espresso-core:$espressoVersion") {
         exclude group: 'com.android.support', module: 'support-annotations'
-    })
-}
-repositories {
-    mavenCentral()
+    }
 }
